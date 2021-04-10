@@ -1,3 +1,6 @@
 module.exports = {
-  publicPath: '/portfolio/'
+  publicPath: '/portfolio/',
+  devServer: {
+    disableHostCheck: true
+  }
 }
