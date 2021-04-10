@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build && cd dist/ && cp index.html 404.html && cd ..",
+    "build": "vue-cli-service build",
+    "build:prod": "vue-cli-service build && cp CNAME dist/",
     "lint": "vue-cli-service lint",
     "deploy": "node scripts/gh-pages-deploy.js"
   },
