@@ -17,6 +17,7 @@ import { Vue, Component } from "vue-property-decorator";
 @Component({})
 export default class App extends Vue {
   get env() {
+    console.log(process.env.NODE_ENV)
     return process.env.NODE_ENV;
   }
 }
