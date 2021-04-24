@@ -1,23 +1,31 @@
 <template>
-  <div id="app">
-    <div v-if="env !== 'production'">
-      <div id="nav">
+  <v-app>
+    <div id="app">
+      <div v-if="env !== 'production'">
+        <Header />
+        <!-- <div id="nav">
         <router-link to="/">Home</router-link> |
         <router-link to="/about">About</router-link>
+      </div> -->
+        <router-view />
       </div>
-      <router-view />
+      <div v-else>WIP</div>
     </div>
-    WIP
-  </div>
+  </v-app>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
+import Header from "./views/Header.vue";
 
-@Component({})
+@Component({
+  components: {
+    Header,
+  },
+})
 export default class App extends Vue {
   get env() {
-    console.log(process.env.NODE_ENV)
+    console.log(process.env.NODE_ENV);
     return process.env.NODE_ENV;
   }
 }
