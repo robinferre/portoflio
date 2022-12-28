@@ -156,7 +156,7 @@
 </ul>
 <p>--------------------------</p>
 <p>--------------------------</p>
-<p>To see less relevant experiences, download the resume with the download-resume command</p>
+<p>To see the less relevant experiences, download the resume with the download-resume-en or download-resume-fr commands</p>
 `,Al=`
 <p>Master degree in software engineering</p>
 <p>ESIEA</p>
