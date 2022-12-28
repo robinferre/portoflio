@@ -1,55 +1,65 @@
-<template>
-  <v-app>
-    <div id="app">
-      <div v-if="env !== 'production'">
-        <Header />
-        <!-- <div id="nav">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link>
-      </div> -->
-        <router-view />
-      </div>
-      <div v-else>WIP</div>
-    </div>
-  </v-app>
-</template>
-
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator";
-import Header from "./views/Header.vue";
+import VueShell from "./components/VueShell.vue";
+import { commands } from "./commands/commands";
+import image from "./assets/cowboy-bebop-cigarette.gif";
 
-@Component({
-  components: {
-    Header,
+export default {
+  components: { VueShell },
+  name: "App",
+  data() {
+    return {
+      send_to_terminal: "",
+      banner: {
+        header: "Robin Ferré SHELL",
+        subHeader: "Interact with to discover my resume",
+        helpHeader: 'Enter "help" for more information.',
+        emoji: {
+          first: "😐",
+          second: "😑",
+          time: 750,
+        },
+        sign: `robsh $`,
+        img: {
+          align: "left",
+          link: image,
+          width: 100,
+          height: 100,
+        },
+      },
+      commands,
+    };
   },
-})
-export default class App extends Vue {
-  get env() {
-    console.log(process.env.NODE_ENV);
-    return process.env.NODE_ENV;
-  }
-}
+  methods: {
+    prompt(value: string) {
+      this.send_to_terminal = `'${value}' is not recognized as an internal command`;
+    },
+  },
+};
 </script>
 
-<style lang="scss">
+<template>
+  <div id="app">
+    <VueShell
+      :banner="banner"
+      :shell_input="send_to_terminal"
+      :commands="commands"
+      @shell_output="prompt"
+    ></VueShell>
+  </div>
+</template>
+
+<style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  margin: 0 auto;
+  font-weight: normal;
+  background-color: black;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+@media (min-width: 1024px) {
+  #app {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
   }
 }
 </style>
