@@ -8,6 +8,7 @@ export const hobbies = `
 </ul>
 <p>Sport</p>
 <ul>
+  <li>Boxe</li>
   <li>Table tennis</li>
   <li>Hiking</li>
   <li>Biking</li>
@@ -18,6 +19,7 @@ export const hobbies = `
   <li>Indie games</li>
   <li>Chess</li>
   <li>Plateformers</li>
+  <li>Poker</li>
 </ul>
 <p>Cinephile</p>
 <ul>
@@ -29,6 +31,6 @@ export const hobbies = `
 <ul>
   <li>Science fiction</li>
   <li>Comics</li>
-  <li>Manga</li>
+  <li>Fantasy</li>
 </ul>
 `;
